@@ -4,7 +4,7 @@ Created on Wed Nov  2 10:38:36 2016
 
 @author: will mcfadden
 
-This is my package that does all the denovo alignment.
+This is my package that does the de novo alignment.
 I have tried to comment the functions pretty explicitly.
 See the accompanying readme for details on how to use this.
 """
@@ -160,8 +160,8 @@ def assemble(filename,use_tricky=0):
     
     """
     reads = readFastaReads(filename)
-    if(use_tricky):
-        start,followers = overlap_all_pairs_easy(reads)
+    if(use_tricky==1):
+        start,followers = overlap_all_pairs_tricky(reads)
     else:
         start,followers = overlap_all_pairs_easy(reads)
     return conjoiner(start,followers,reads)
